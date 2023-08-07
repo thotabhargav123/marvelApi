@@ -20,7 +20,7 @@ let CharacterName = document.getElementById("character")
 let SearchCharacter = document.getElementById("SearchCharacter")
 let charactersContainer = document.getElementById("charcters")
 
-//http://gateway.marvel.com/v1/public/comics?titleStartsWith=iron&limit=15&ts=1&apikey=97f7d31035731dec9658307c50fc8aca&hash=11df1c65f26cd067ffd321103f292e75
+//https://gateway.marvel.com/v1/public/comics?titleStartsWith=iron&limit=15&ts=1&apikey=97f7d31035731dec9658307c50fc8aca&hash=11df1c65f26cd067ffd321103f292e75
 CharacterName.addEventListener("keyup", function (e) {
     if (e.key == "Enter") {
         if (CharacterName.value == "") {
@@ -43,7 +43,7 @@ SearchCharacter.addEventListener("click", function () {
 })
 function loadCharcterID() {
     removePreviousCharacter();
-    let url = `http://gateway.marvel.com/v1/public/characters?nameStartsWith=${CharacterName.value}&limit=15&ts=1&apikey=${API}&hash=${Hash}`
+    let url = `https://gateway.marvel.com/v1/public/characters?nameStartsWith=${CharacterName.value}&limit=15&ts=1&apikey=${API}&hash=${Hash}`
     fetch(url).then(function (response) {
         // console.log(response);
         if (!response.ok) {
@@ -124,7 +124,7 @@ SearchComicByTitle.addEventListener("click", function (e) {
 })
 function loadComicByName() {
     removePreviousComics();
-    let url = `http://gateway.marvel.com/v1/public/comics?titleStartsWith=${ComicName.value}&limit=15&ts=1&apikey=${API}&hash=${Hash}`
+    let url = `https://gateway.marvel.com/v1/public/comics?titleStartsWith=${ComicName.value}&limit=15&ts=1&apikey=${API}&hash=${Hash}`
     fetch(url).then(function (response) {
         console.log(response);
         if (!response.ok) {
@@ -165,7 +165,7 @@ SearchComicByID.addEventListener("click", function (e) {
 })
 function loadComicByID() {
     removePreviousComics();
-    let url = `http://gateway.marvel.com/v1/public/characters/${ComicByID.value}/comics?limit=100&ts=1&apikey=${API}&hash=${Hash}`;
+    let url = `https://gateway.marvel.com/v1/public/characters/${ComicByID.value}/comics?limit=100&ts=1&apikey=${API}&hash=${Hash}`;
     fetch(url).then(function (response) {
         // console.log(response);
         if (!response.ok) {
@@ -292,7 +292,7 @@ SearchComicByISBN.addEventListener("click", function (e) {
 
 function loadDescriptionByisbn() {
     clearDescrption();
-    let url = `http://gateway.marvel.com/v1/public/comics?isbn=${isbnInput.value}&ts=1&apikey=${API}&hash=${Hash}`;
+    let url = `https://gateway.marvel.com/v1/public/comics?isbn=${isbnInput.value}&ts=1&apikey=${API}&hash=${Hash}`;
     fetch(url).then(function (response) {
         // console.log(response);
         if (!response.ok) {
@@ -311,7 +311,7 @@ function loadDescriptionByisbn() {
 
 function loadDescriptionByUpc() {
     clearDescrption();
-    let url = `http://gateway.marvel.com/v1/public/comics?upc=${upcInput.value}&ts=1&apikey=${API}&hash=${Hash}`;
+    let url = `https://gateway.marvel.com/v1/public/comics?upc=${upcInput.value}&ts=1&apikey=${API}&hash=${Hash}`;
     fetch(url).then(function (response) {
         // console.log(response);
         if (!response.ok) {
